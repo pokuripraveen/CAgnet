@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- Login Screen -->
+    <color name="textColorWhite">#FFFFFF</color>
+    <color name="textColorFocused">#6495ED</color>
+    <color name="edittextBorderColor">#EE82EE</color>
+    <color name="btnColorstart">#33AFFF</color>
+    <color name="btnColormid">#33DAFF</color>
+
+
+    <color name="login_text_color_hint">#aba2a2</color>
+    <color name="login_background_active">@android:color/white</color>
+    <color name="login_background_inactive">@android:color/holo_green_dark</color>
+    <color name="action_secondary_pressed">#d9ab4d</color>
+    <color name="action_secondary">#C88700</color>
+    <color name="action_disabled">#4d3751</color>
+    <color name="login_forgot_password">@color/action_secondary</color>
+    <color name="login_error_message">#e7e685</color>
+
+</resources>

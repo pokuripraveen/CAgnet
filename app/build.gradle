@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+apply from: "${rootDir}/app-common.gradle"
+apply from: "${rootDir}/dependency.gradle"
+
+android {
+    buildToolsVersion rootProject.buildToolsVersion
+    compileSdkVersion rootProject.compileSdkVersion
+    defaultConfig {
+        applicationId "com.unique.agent"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+}
+
+dependencies {
+
+    println tasks.('count')
+    println tasks.getByPath('count').path
+
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support'
+        exclude module: 'support-annotations'
+        exclude module: 'rules'
+        exclude module: 'javax.annotation-api'
+    })
+
+    compile compileSupportLibrary()
+    compile compileThridPartyLibrary()
+
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0-alpha9"
+    testCompile 'junit:junit:4.12'
+}

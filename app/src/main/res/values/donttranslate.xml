@@ -1,0 +1,15 @@
+<resources>
+
+    <string-array name="country_codes_array">
+        <item>+91</item>
+    </string-array>
+    <string-array name="account_types">
+        <item>Admin</item>
+        <item>User</item>
+    </string-array>
+    <string-array name="account_options">
+        <item>Email</item>
+        <item>Mobile</item>
+        <item>User Name</item>
+    </string-array>
+</resources>

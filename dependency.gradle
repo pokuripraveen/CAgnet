@@ -1,0 +1,96 @@
+//check here https://mvnrepository.com/artifact/for latest library versions
+repositories {
+    flatDir {
+        dirs "${rootDir}/ext-libs"
+    }
+    jcenter()
+}
+
+ext.libraries = [
+    androidSupport : [
+            "com.android.support:appcompat-v7:$supportLibraryVersion",
+            "com.android.support:recyclerview-v7:$supportLibraryVersion",
+            "com.android.support:design:$supportLibraryVersion",
+            'com.android.support.constraint:constraint-layout:1.0.2'
+    ],
+    compileThirdParty : [
+            'com.google.dagger:dagger:2.11',
+            'javax.annotation:javax.annotation-api:1.2',
+            'com.squareup.retrofit2:retrofit:2.3.0',
+            'com.squareup.okhttp3:okhttp:3.8.1',
+            'com.squareup.okio:okio:1.13.0',
+            'com.google.code.gson:gson:2.8.0',
+            'com.squareup.retrofit2:converter-gson:2.3.0',
+            "com.jakewharton:disklrucache:$diskLruCache",
+            "org.apache.commons:commons-lang3:$apacheCommonsLang3Version",
+            "android.arch.persistence.room:runtime:1.0.0-alpha9"
+    ]
+]
+
+ext.compileThridPartyLibrary = {
+   return libraries.compileThirdParty
+}
+
+ext.compileSupportLibrary = {
+    return libraries.androidSupport
+}
+
+
+// ====================== TESTING START===============//
+task taskX << {
+    println 'taskX'
+}
+taskX.dependsOn {
+    tasks.findAll {
+        task -> task.name.startsWith('lib')
+    }
+}
+task taskY(dependsOn: 'taskX') << {
+    println "taskY"
+}
+task lib1 << {
+    println 'lib1'
+}
+task lib2 << {
+    println 'lib2'
+}
+task notALib << {
+    println 'notALib'
+}
+//taskY.dependsOn taskX
+
+task count {
+    doLast {
+        println "$owner " + "$delegate"
+        5.times {
+            println "$it"
+        }
+        String myName = "Marc";
+        myName.each() {
+            println "${it}"
+        };
+    }
+}
+apply plugin: GreetingPlugin
+
+class GreetingPlugin implements Plugin<Project> {
+    void apply(Project project) {
+        project.task('NewHello') << {
+            println "Hello from the GreetingPlugin"
+        }
+        // Add the 'greeting' extension object
+        project.extensions.create("greeting", GreetingPluginExtension)
+
+        // Add a task that uses the configuration
+        project.task('NextHello') << {
+            println project.greeting.message
+        }
+    }
+}
+
+class GreetingPluginExtension {
+    def String message = 'Hello from GreetingPlugin'
+}
+
+
+//========================= TESTING END ==========================//

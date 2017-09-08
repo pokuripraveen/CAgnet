@@ -1,0 +1,11 @@
+buildscript {
+    project.extensions.add("buildToolClassPath", 'com.android.tools.build:gradle:2.3.0')
+    project.extensions.add("minSdkVersion", 15)
+    project.extensions.add("targetSdkVersion", 15)
+    project.extensions.add("compileSdkVersion", 24)
+    project.extensions.add("buildToolsVersion", '25.0.0')
+    project.extensions.add("supportLibraryVersion", '24.0.0')
+    project.extensions.add("playServicesVersion", '9.2.1')
+    project.extensions.add("diskLruCache", '2.0.2')
+    project.extensions.add("apacheCommonsLang3Version", '3.1')
+}
