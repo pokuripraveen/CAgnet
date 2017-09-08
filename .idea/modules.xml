@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyCounterAgent.iml" filepath="$PROJECT_DIR$/MyCounterAgent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CAgnet.iml" filepath="$PROJECT_DIR$/CAgnet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

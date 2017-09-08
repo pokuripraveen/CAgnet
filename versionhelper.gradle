@@ -8,4 +8,6 @@ buildscript {
     project.extensions.add("playServicesVersion", '9.2.1')
     project.extensions.add("diskLruCache", '2.0.2')
     project.extensions.add("apacheCommonsLang3Version", '3.1')
+    project.extensions.add("archRoomVersion","1.0.0-alpha1")
+    project.extensions.add("retrofitVersion","2.3.0")
 }

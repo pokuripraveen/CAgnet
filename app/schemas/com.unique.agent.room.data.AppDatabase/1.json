@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "2679542324375b920a087f9b923a2247",
+    "identityHash": "ca6c676b4db328b0b624edc0170fbd40",
     "entities": [
       {
         "tableName": "Users",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `first_name` TEXT, `lst_name` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `first_name` TEXT, `last_name` TEXT, `last_update` TEXT)",
         "fields": [
           {
             "fieldPath": "uId",
@@ -22,7 +22,13 @@
           },
           {
             "fieldPath": "lastName",
-            "columnName": "lst_name",
+            "columnName": "last_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastUpdate",
+            "columnName": "last_update",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -39,7 +45,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"2679542324375b920a087f9b923a2247\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"ca6c676b4db328b0b624edc0170fbd40\")"
     ]
   }
 }

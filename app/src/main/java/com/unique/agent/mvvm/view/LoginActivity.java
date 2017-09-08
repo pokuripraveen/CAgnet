@@ -90,12 +90,15 @@ public class LoginActivity extends BaseActivity<LoginViewModel> implements Adapt
             @Override
             public void run() {
                 android.util.Log.i("PRAV","myrun ");
-                com.unique.agent.room.model.User user = new com.unique.agent.room.model.User("Praveen","Pokuri",null);
+                com.unique.agent.room.model.User user = new com.unique.agent.room.model.User();
+                user.setFirstName("Praveen");
+                user.setLastName("Pokuri");
                 AppDatabase mDB =  AppCore.getInstance().getAppDatabase();
+                mDB.getUserDao().insertAll(user);
                 List<com.unique.agent.room.model.User> users = mDB.getUserDao().getAll();
                 android.util.Log.i("PRAV","Users Length "+users.size());
                 for(com.unique.agent.room.model.User storedUser :users){
-                    android.util.Log.i("PRAV"," First "+storedUser.firstName+"  secondname "+storedUser.lastName);
+                    android.util.Log.i("PRAV"," First "+storedUser.getFirstName()+"  secondname "+storedUser.getLastName());
                 }
             }
         };

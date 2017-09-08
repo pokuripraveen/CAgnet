@@ -11,30 +11,61 @@ import static com.unique.agent.room.TableUtils.TBL_USERS;
 /**
  * Created by praveenpokuri on 06/09/17.
  */
-@Entity(tableName = TBL_USERS)
+@Entity(tableName = TBL_USERS/*, primaryKeys = {"first_name", "last_name"}*/)
 public class User {
     @PrimaryKey(autoGenerate = true)
-    public int uId;
+    private int uId;
 
     @ColumnInfo(name = "first_name")
-    public String firstName;
+    private String firstName;
 
-    @ColumnInfo(name = "lst_name")
-    public String lastName;
+    @ColumnInfo(name = "last_name")
+    private String lastName;
 
-    @ColumnInfo(name = "lst_update")
-    public String lastUpdate;
+    @ColumnInfo(name = "last_update")
+    private String lastUpdate;
 
     @Ignore
-    Bitmap avatar;
+    private Bitmap avatar;
 
-    public User(){
-
+    public int getUId() {
+        return uId;
     }
 
-    public User(String firstName, String lastName, Bitmap avatar){
+    public void setUId(int uId) {
+        this.uId = uId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(String lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public Bitmap getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Bitmap avatar) {
         this.avatar = avatar;
     }
+
 }

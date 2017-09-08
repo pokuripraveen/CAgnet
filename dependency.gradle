@@ -16,14 +16,14 @@ ext.libraries = [
     compileThirdParty : [
             'com.google.dagger:dagger:2.11',
             'javax.annotation:javax.annotation-api:1.2',
-            'com.squareup.retrofit2:retrofit:2.3.0',
             'com.squareup.okhttp3:okhttp:3.8.1',
             'com.squareup.okio:okio:1.13.0',
             'com.google.code.gson:gson:2.8.0',
-            'com.squareup.retrofit2:converter-gson:2.3.0',
+            "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            "com.squareup.retrofit2:converter-gson:$retrofitVersion",
             "com.jakewharton:disklrucache:$diskLruCache",
             "org.apache.commons:commons-lang3:$apacheCommonsLang3Version",
-            "android.arch.persistence.room:runtime:1.0.0-alpha9"
+            "android.arch.persistence.room:runtime:$archRoomVersion"
     ]
 ]
 

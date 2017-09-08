@@ -28,5 +28,9 @@ public interface UserDao {
 
     @Delete
     void delete(User user);
+
+    @Query("SELECT * FROM "+TBL_USERS+" WHERE first_name LIKE :first AND last_name LIKE :last LIMIT 1")
+    User findByName(String first, String last);
+
 }
 
